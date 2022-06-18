@@ -31,5 +31,5 @@ app.use(express.static('public'))
 app.use('/', router);
 
 app.listen(port, () => {
-    console.log(`SERVER LISTENING ON PORT: https://localhost:${port}`);
+    console.log(`SERVER LISTENING ON PORT: http://localhost:${port}`);
 });

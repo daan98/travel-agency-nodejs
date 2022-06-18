@@ -1,15 +1,15 @@
 import Sequelize from 'sequelize';
 
-const dbname = 'agenciaviajes';
+const dbname = 'agencia_viajes';
 const user = 'daniel';
-const password = ''
+const password = 'c0ntr@$3ñ@$Daniel';
 
 const db = new Sequelize(dbname, user, password, {
     host: '127.0.0.1',
-    port: '3306',
+    port: '3308',
     dialect: 'mysql',
     define: {
-        timestamp: false,
+        timestamps: false,
     },
     pool: {
         max: 5,
