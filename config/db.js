@@ -2,7 +2,7 @@ import Sequelize from 'sequelize';
 
 const dbname = 'agencia_viajes';
 const user = 'daniel';
-const password = 'c0ntr@$3ñ@$Daniel';
+const password = '';
 
 const db = new Sequelize(dbname, user, password, {
     host: '127.0.0.1',

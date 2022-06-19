@@ -7,6 +7,9 @@ import {
     paginaTestimoniales,
     paginaViajeUnico
 } from '../controllers/paginas.controller.js';
+import {
+    guardarTestimoniales
+} from "../controllers/testimoniales.controller.js";
 
 const router = express.Router();
 
@@ -21,5 +24,6 @@ router.get('/viajes', paginaViajes);
 router.get('/viajes/:slug', paginaViajeUnico);
 
 router.get('/testimoniales', paginaTestimoniales);
+router.post('/testimoniales', guardarTestimoniales);
 
 export default router;

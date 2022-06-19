@@ -13,7 +13,7 @@ db.authenticate()
 const port = process.env.PORT || 4000;
 
 // ADDING PUG
-app.set('view engine', 'pug')
+app.set('view engine', 'pug');
 
 // OBTAINING ACTUAL YEAR
 app.use( (req, res, next) => {
@@ -24,10 +24,13 @@ app.use( (req, res, next) => {
     next();
 });
 
+// READING FORM INFORMATION WITH BODY PARSER MUST BE BEFORE app.ue('/', router)
+app.use(express.urlencoded({ extended: true }));
+
 // DEFINING PUBLIC FOLDER
 app.use(express.static('public'))
 
-// ADDING ROUTER
+// ADDING ROUTER MUST BE BEFORE THE app.listen
 app.use('/', router);
 
 app.listen(port, () => {

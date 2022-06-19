@@ -1,4 +1,41 @@
 extends ./layout/index
 
 block information 
-    p= page 
+    main.container.mt-5 
+        h1.text-center.mt-t #{page}
+        
+        blockquote.text-center Lee sobre nuestros clientes y sus experiencias 
+        .row.testimoniales 
+            each testimonial in testimoniales 
+                .col-md-6.col-lg-4.mb-4 
+                    .card 
+                        .card-body 
+                            blockquote.blockquote 
+                            p.mb-0 
+                                | #{testimonial.message}
+                            footer.blockquote-footer 
+                                | #{testimonial.name}
+                                
+        .row 
+            .col-md-12 
+                h2.d-block.w-100.text-center Agrega un testimonial
+                if(errors)
+                    each error in errors
+                        .alert.col.alert-danger.text-center= error.message
+
+            .row.justify-content-center.col
+                .col-md-8 
+                    form(action="/testimoniales", method="POST")
+                        .form-group 
+                            label(for="nameId")
+                            input#nameId(type="text", name="name", placeholder="Tu nombre", value=name, class="form-control")
+                        
+                        .form-group 
+                            label(for="emailId")
+                            input#emailId(type="mail", name="email", placeholder="Tu correo electrónico", value=email, class="form-control")
+                        
+                        .form-group 
+                            label(for="messageId")
+                            textarea#messageId(type="text", rows="3", name="message", placeholder="Tu mensaje", class="form-control")=message 
+
+                        input.btn.btn-success.btn-block(type="submit", value="Enviar")
