@@ -11,7 +11,9 @@ const guardarTestimoniales = async (req, res) => {
 
     if(message.trim() === '') errors.push({ message: 'Mensaje está vacio.', });
 
-    if(errors){ 
+    console.log('errors: ', errors.length);
+    if(errors.length > 0){ 
+        console.log('Error at testimoniales.controller: ', errors);
         // SENDING ERRORS TO testimoniales.pug AND req.body INFORMATION TO KEEP IT ON REFRESH
         const testimoniales = await Testimoniales.findAll();
         
@@ -25,6 +27,7 @@ const guardarTestimoniales = async (req, res) => {
     } else{
         // SENDING INFORMATION TO DATABASE
         try {
+            console.log('Enviando la información: ', req.body);
             await Testimoniales.create({
                 name: name,
                 email: email,

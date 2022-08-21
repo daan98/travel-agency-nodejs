@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/daan98/travel-agency-nodejs#readme",
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "mysql2": "^2.3.3",
     "pug": "^3.0.2",
